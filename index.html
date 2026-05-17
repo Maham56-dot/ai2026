@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Service Orchestrator Web App</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Courier+Prime&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0F5132; /* Emerald Green */
+            --primary-light: rgba(15, 81, 50, 0.15);
+            --gold: #FFD700; /* Gold */
+            --gold-glow: rgba(255, 215, 0, 0.4);
+            --bg-dark: #090d13;
+            --card-bg: rgba(20, 26, 38, 0.7);
+            --border-color: rgba(15, 81, 50, 0.3);
+            --text: #ffffff;
+            --text-muted: #a0aec0;
+            --danger: #842029;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(15, 81, 50, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(255, 215, 0, 0.05) 0px, transparent 50%);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        /* Centered Mobile Viewport Frame */
+        .app-container {
+            width: 100%;
+            max-width: 460px;
+            height: 92vh;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(12px);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+            margin: 10px;
+        }
+
+        /* App Main Header */
+        .app-header {
+            background: linear-gradient(135deg, #091210, var(--primary));
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--text);
+            z-index: 10;
+        }
+
+        .header-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .avatar-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+            font-size: 16px;
+            border: 2px solid var(--gold-glow);
+            box-shadow: 0 0 10px var(--gold-glow);
+        }
+
+        .header-info h2 {
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .header-info p {
+            font-size: 11px;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background: #00ff00;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 5px #00ff00;
+        }
+
+        /* Main Content Screens Controller */
+        .screen-flow {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            scroll-behavior: smooth;
+        }
+
+        .screen {
+            display: none;
+            flex-direction: column;
+            gap: 16px;
+            animation: fadeIn 0.3s ease-in-out forwards;
+        }
+
+        .screen.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Elegant Card Abstraction */
+        .glass-card {
+            background: rgba(26, 32, 44, 0.4);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(255, 215, 0, 0.2);
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* ----------------- SCREEN 1: WHATSAPP CHAT INTERFACE ----------------- */
+        .chat-history {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding-bottom: 10px;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 13px;
+            line-height: 1.4;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .message.system {
+            background: rgba(30, 41, 59, 0.6);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .message.user {
+            background: var(--primary);
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .typing-indicator {
+            display: none;
+            align-self: flex-start;
+            background: rgba(30, 41, 59, 0.6);
+            padding: 10px 16px;
+            border-radius: 18px;
+            border-bottom-left-radius: 4px;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--text-muted);
+            border-radius: 50%;
+            animation: bounce 1.3s infinite;
+        }
+
+        .dot:nth-child(2) { animation-delay: 0.15s; }
+        .dot:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes bounce {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-4px); }
+        }
+
+        .suggestion-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .chip {
+            background: var(--primary-light);
+            border: 1px solid var(--border-color);
+            color: var(--text);
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .chip:hover {
+            border-color: var(--gold);
+            background: rgba(255, 215, 0, 0.08);
+            transform: scale(1.02);
+        }
+
+        .chat-input-bar {
+            background: #090d13;
+            border-top: 1px solid var(--border-color);
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .chat-input {
+            flex: 1;
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 10px 16px;
+            color: #fff;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .btn-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: none;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-icon:hover {
+            background: #14623c;
+        }
+
+        /* ----------------- SCREEN 2: PROVIDER SELECTION LIST ----------------- */
+        .provider-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .provider-card {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 12px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .provider-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .provider-card.selected {
+            border-color: var(--gold);
+            background: rgba(255, 215, 0, 0.03);
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
+        }
+
+        .provider-info-main {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .provider-name {
+            font-size: 13.5px;
+            font-weight: 600;
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+
+        .badge-Senior { background: var(--gold); color: #000; }
+        .badge-Intermediate { background: var(--primary); color: #fff; }
+        .badge-Junior { background: #4a5568; color: #fff; }
+
+        .rating-label {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .provider-stats-side {
+            text-align: right;
+            font-size: 12px;
+        }
+
+        .distance-label {
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        /* ----------------- SCREEN 3: DYNAMIC PRICING INVOICE ----------------- */
+        .invoice-receipt {
+            font-family: 'Courier Prime', monospace;
+            background: #000;
+            border-left: 3px dashed var(--gold);
+            border-right: 3px dashed var(--gold);
+            padding: 16px;
+            color: #00ff00;
+            font-size: 12px;
+            border-radius: 4px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+        }
+
+        .receipt-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .receipt-desc {
+            font-size: 10px;
+            color: #888;
+            margin-bottom: 8px;
+            padding-left: 10px;
+        }
+
+        .receipt-divider {
+            border-bottom: 1px dashed #444;
+            margin: 10px 0;
+        }
+
+        .slider-box {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .slider-box label {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .range-slider {
+            width: 100%;
+            height: 6px;
+            background: #2d3748;
+            border-radius: 3px;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--gold);
+            cursor: pointer;
+            box-shadow: 0 0 5px var(--gold);
+        }
+
+        .alternatives-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .alt-card {
+            background: rgba(15, 81, 50, 0.1);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .alt-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .alt-title {
+            font-weight: 600;
+            color: var(--gold);
+            font-size: 12.5px;
+        }
+
+        .alt-savings {
+            color: #00ff00;
+            font-weight: 800;
+            font-size: 12px;
+        }
+
+        .alt-btn {
+            background: var(--primary);
+            border: none;
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            align-self: flex-end;
+        }
+
+        /* Booking slots style */
+        .slot-selector {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 10px;
+            color: #fff;
+            outline: none;
+            width: 100%;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .primary-btn {
+            background: linear-gradient(135deg, var(--primary), #1a744a);
+            border: 1px solid var(--gold);
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .primary-btn:hover {
+            box-shadow: 0 0 10px var(--gold-glow);
+            transform: scale(1.01);
+        }
+
+        /* ----------------- SCREEN 4: TIMELINE STATUS TRACKING TIMELINE ----------------- */
+        .stepper-progress {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .stepper-progress::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: #2d3748;
+            z-index: 1;
+        }
+
+        .stepper-progress-fill {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 10%;
+            width: 0%;
+            height: 3px;
+            background: var(--primary);
+            z-index: 2;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .step-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 20%;
+            z-index: 3;
+        }
+
+        .node-circle {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #2d3748;
+            border: 2px solid #1a202c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: bold;
+            color: var(--text-muted);
+            transition: all 0.3s;
+        }
+
+        .step-node.active .node-circle {
+            background: var(--gold);
+            color: #000;
+            border-color: var(--gold);
+            box-shadow: 0 0 8px var(--gold);
+        }
+
+        .step-node.done .node-circle {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        .node-label {
+            font-size: 9px;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 6px;
+        }
+
+        /* Smartphone bilingual SMS widget */
+        .phone-mockup {
+            background: #111b21; /* WhatsApp background */
+            border-radius: 12px;
+            border: 2px solid #202c33;
+            padding: 12px;
+        }
+
+        .phone-header {
+            font-size: 11px;
+            font-weight: bold;
+            color: var(--gold);
+            border-bottom: 1px solid #202c33;
+            padding-bottom: 6px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .sms-bubble {
+            background: #202c33;
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 12px;
+            line-height: 1.4;
+            color: #e9edef;
+            margin-bottom: 8px;
+        }
+
+        .sms-bubble.roman-urdu {
+            border-left: 3px solid var(--gold);
+            background: rgba(255,215,0,0.02);
+            color: #ffe680;
+        }
+
+        /* ----------------- SCREEN 5: RATINGS & DISPUTES ----------------- */
+        .stars-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            padding: 10px 0;
+        }
+
+        .star {
+            font-size: 28px;
+            cursor: pointer;
+            color: #2d3748;
+            transition: color 0.15s;
+        }
+
+        .star.hovered, .star.selected {
+            color: var(--gold);
+            text-shadow: 0 0 5px var(--gold-glow);
+        }
+
+        .feedback-input {
+            width: 100%;
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 10px 14px;
+            color: #fff;
+            font-size: 13px;
+            outline: none;
+            resize: none;
+            margin-top: 5px;
+        }
+
+        .dispute-intake-panel {
+            display: none;
+            border-top: 1px dashed rgba(255,255,255,0.1);
+            padding-top: 15px;
+            margin-top: 15px;
+            animation: fadeIn 0.3s;
+        }
+
+        .admin-dashed-box {
+            border: 2px dashed var(--gold);
+            background: rgba(255, 215, 0, 0.02);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 15px;
+        }
+
+        .admin-trace-log {
+            background: #05080c;
+            color: #00ff00;
+            font-family: 'Courier Prime', monospace;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 11px;
+            overflow-x: auto;
+            max-height: 180px;
+            border: 1px solid #1a202c;
+            margin-top: 8px;
+        }
+
+        .badge-risk {
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+        }
+        .risk-High { background: var(--danger); color: #fff; }
+        .risk-Low { background: var(--primary); color: #fff; }
+
+        /* Floating footer navigation back to start */
+        .bottom-action-bar {
+            padding: 12px 16px;
+            background: #090d13;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .secondary-btn {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .secondary-btn:hover {
+            background: rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- App Header (WhatsApp styling) -->
+        <header class="app-header">
+            <div class="header-profile">
+                <div class="avatar-circle">AI</div>
+                <div class="header-info">
+                    <h2>Service Assistant</h2>
+                    <p><span class="status-dot"></span> Islamabad • Online</p>
+                </div>
+            </div>
+            <button class="secondary-btn" id="btnHome" onclick="resetFlow()">Reset</button>
+        </header>
+
+        <!-- Dynamic Screen Content Flow -->
+        <main class="screen-flow">
+
+            <!-- ----------------- SCREEN 1: WHATSAPP CHAT ----------------- -->
+            <section class="screen active" id="screenChat">
+                <div class="chat-history" id="chatHistory">
+                    <div class="message system">
+                        Assalam-o-Alaikum! 🤝 I am your AI Service Orchestrator. 
+                        Aap ko Islamabad mein kis service ki zaroorat hai? Bijli ka masla hai ya plumber chahiye? Please type details below.
+                    </div>
+                </div>
+
+                <!-- Typing indicator -->
+                <div class="typing-indicator" id="typingIndicator">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+
+                <div class="suggestion-chips">
+                    <div class="chip" onclick="sendSuggestion('🚨 Bijli Emergency: short circuit, light chali gayi hai F-8')">🚨 Bijli Emergency (F-8)</div>
+                    <div class="chip" onclick="sendSuggestion('📆 Schedule plumber: sewerage leak issue DHA Phase 2')">📆 Schedule Plumber (DHA 2)</div>
+                </div>
+            </section>
+
+            <!-- ----------------- SCREEN 2: PROVIDER MATCHING LIST ----------------- -->
+            <section class="screen" id="screenProviders">
+                <div class="glass-card">
+                    <div class="card-title">Top Matched Specialists <span style="font-size: 11px; color: var(--gold);" id="txtDetection">NLU: electrician</span></div>
+                    <div class="provider-grid" id="providerGrid">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- ----------------- SCREEN 3: INVOICE & BOOKING ----------------- -->
+            <section class="screen" id="screenPricing">
+                <div class="glass-card">
+                    <div class="card-title">Dynamic Invoice & Schedule</div>
+                    
+                    <div class="invoice-receipt" id="invoiceReceipt">
+                        <!-- Digital receipt math will render here -->
+                    </div>
+
+                    <!-- Distance manual slider override -->
+                    <div class="slider-box">
+                        <label id="lblDistance">Tweak Distance: 2.4 km</label>
+                        <input type="range" class="range-slider" id="sliderDistance" min="1" max="25" step="0.5" value="2.4" oninput="updateDistancePricing(this.value)">
+                    </div>
+
+                    <!-- Alternatives suggestions -->
+                    <div style="margin-top: 10px;">
+                        <div style="font-size: 12px; color: var(--gold); font-weight: 600; margin-bottom: 8px;">💡 Budget-Friendly Alternatives (Paise Bachayein!)</div>
+                        <div class="alternatives-container" id="alternativesContainer">
+                            <!-- Suggestion cards -->
+                        </div>
+                    </div>
+
+                    <!-- Slot Selector & Booking -->
+                    <div style="margin-top: 10px;">
+                        <label style="font-size: 12px; color: var(--text-muted);">Choose start slot (30m travel buffer pre-allocated):</label>
+                        <select class="slot-selector" id="slotSelector">
+                            <option>10:00 AM</option>
+                            <option>11:30 AM</option>
+                            <option>01:00 PM</option>
+                            <option>02:30 PM</option>
+                        </select>
+                    </div>
+
+                    <button class="primary-btn" style="margin-top: 10px;" onclick="confirmBooking()">🔥 Confirm and Book Appointment Now!</button>
+                </div>
+            </section>
+
+            <!-- ----------------- SCREEN 4: TIMELINE STATUS TRACKING ----------------- -->
+            <section class="screen" id="screenTracking">
+                <div class="glass-card">
+                    <div class="card-title">🛰️ Live Status Tracking Timeline</div>
+                    
+                    <div class="stepper-progress">
+                        <div class="stepper-progress-fill" id="stepperFill"></div>
+                        <div class="step-node" id="step_PENDING">
+                            <div class="node-circle">1</div>
+                            <div class="node-label">Kaam Darj<br/>(Pending)</div>
+                        </div>
+                        <div class="step-node" id="step_ACCEPTED">
+                            <div class="node-circle">2</div>
+                            <div class="node-label">Maahir Qabool<br/>(Accepted)</div>
+                        </div>
+                        <div class="step-node" id="step_EN_ROUTE">
+                            <div class="node-circle">3</div>
+                            <div class="node-label">Safar Mein<br/>(En Route)</div>
+                        </div>
+                        <div class="step-node" id="step_STARTED">
+                            <div class="node-circle">4</div>
+                            <div class="node-label">Shuru<br/>(Started)</div>
+                        </div>
+                        <div class="step-node" id="step_COMPLETED">
+                            <div class="node-circle">5</div>
+                            <div class="node-label">Mukammal<br/>(Completed)</div>
+                        </div>
+                    </div>
+
+                    <!-- Travel Simulator Actions -->
+                    <div style="display:flex; gap: 8px; flex-wrap: wrap; margin-top: 10px;">
+                        <button class="secondary-btn" id="btnEnRoute" onclick="advanceStatus('EN_ROUTE')">Start Travel ➡️</button>
+                        <button class="secondary-btn" id="btnStarted" onclick="advanceStatus('STARTED')" style="display:none;">Start Work 🛠️</button>
+                        <button class="secondary-btn" id="btnCompleted" onclick="advanceStatus('COMPLETED')" style="display:none;">Finish Job ✅</button>
+                    </div>
+                </div>
+
+                <!-- WhatsApp Notifications simulated smartphone container -->
+                <div class="phone-mockup">
+                    <div class="phone-header">💬 Live Customer WhatsApp Alerts</div>
+                    <div class="sms-bubble" id="smsEnglish">Booking registered. Zafar Ali will contact you shortly.</div>
+                    <div class="sms-bubble roman-urdu" id="smsUrdu">Aap ki booking darj ho chuki hai. Zafar Ali aapse rabta karein ge.</div>
+                </div>
+            </section>
+
+            <!-- ----------------- SCREEN 5: REPUTATION & DISPUTES ----------------- -->
+            <section class="screen" id="screenFeedback">
+                <div class="glass-card" id="cardRatingForm">
+                    <div class="card-title">⭐ Rate Your Experience</div>
+                    
+                    <p style="font-size:12.5px; color:var(--text-muted); text-align:center;">
+                        Please rate Zafar Ali's work to update his Islamabad ranking database.
+                    </p>
+
+                    <div class="stars-container" id="starsContainer">
+                        <span class="star" data-value="1" onmouseover="starHover(1)" onmouseout="starReset()" onclick="starClick(1)">★</span>
+                        <span class="star" data-value="2" onmouseover="starHover(2)" onmouseout="starReset()" onclick="starClick(2)">★</span>
+                        <span class="star" data-value="3" onmouseover="starHover(3)" onmouseout="starReset()" onclick="starClick(3)">★</span>
+                        <span class="star" data-value="4" onmouseover="starHover(4)" onmouseout="starReset()" onclick="starClick(4)">★</span>
+                        <span class="star" data-value="5" onmouseover="starHover(5)" onmouseout="starReset()" onclick="starClick(5)">★</span>
+                    </div>
+
+                    <textarea class="feedback-input" id="txtReview" rows="3" placeholder="Urdu or English review... (e.g. 'bohot acha aur professional electrician, fast kaam kiya')"></textarea>
+
+                    <div style="margin-top: 10px;">
+                        <input type="checkbox" id="chkDisputeTrigger" onchange="toggleDisputeIntake(this.checked)">
+                        <label for="chkDisputeTrigger" style="font-size:12.5px; color:var(--text-muted); cursor:pointer;">🚨 Need help? File an Operational Dispute ticket</label>
+                    </div>
+
+                    <button class="primary-btn" style="margin-top: 15px;" onclick="submitFeedbackReputation()">Submit Rating & Sentiment Audit</button>
+                </div>
+
+                <!-- Rating Success Log Info -->
+                <div class="glass-card" id="cardRatingResult" style="display:none;">
+                    <div class="card-title">📊 Reputation Database Logged!</div>
+                    <div id="reputationAuditReport"></div>
+                </div>
+
+                <!-- Dispute Resolution Ingester Form -->
+                <div class="glass-card dispute-intake-panel" id="disputePanel">
+                    <div class="card-title" style="color:var(--danger)">🚨 Support Dispute Escalation Protocol</div>
+                    
+                    <div style="font-size:12px; color:var(--text-muted); margin-bottom: 10px;">
+                        Disputes trigger billing audit reviews and platform operational provider risk audits.
+                    </div>
+
+                    <select class="slot-selector" id="disputeCategory" style="margin-bottom: 10px;">
+                        <option value="Poor Quality">Poor Quality Service / Bad Behavior</option>
+                        <option value="Price Disagreement">Price Disagreement / Overcharging</option>
+                    </select>
+
+                    <textarea class="feedback-input" id="txtDisputeComplaint" rows="2" placeholder="Tell us exactly what happened... why do you disagree with the cost or quality?"></textarea>
+
+                    <button class="primary-btn" style="margin-top: 12px; background:var(--danger); border-color:#d9534f;" onclick="lodgeOperationalDispute()">🔥 Submit dispute Ticket & Escalation</button>
+                </div>
+
+                <!-- platform admin reasoning trace dashboard log card -->
+                <div class="admin-dashed-box" id="cardAdminTrace" style="display:none;">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <strong style="color:var(--gold); font-size:13px;">🛡️ PLATFORM ADMIN RESOLUTION BOARD</strong>
+                        <span class="badge-risk" id="adminRiskBadge">High Risk</span>
+                    </div>
+                    <div style="font-size:10px; color:var(--text-muted); margin-top:2px;">Audited calculations & provider profiles dynamically logged.</div>
+                    
+                    <div class="admin-trace-log" id="adminTraceLog">
+                        <!-- reasoning trace lines -->
+                    </div>
+
+                    <div style="background:rgba(255,215,0,0.08); border-left:3px solid var(--gold); padding:10px; border-radius:6px; margin-top:10px;">
+                        <strong style="color:var(--gold); font-size:12px;">🤖 Platform Decision & Recommendation:</strong>
+                        <p style="font-size:11px; margin-top:2px; color:#fff;" id="adminRecommendationText"></p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Chat Input Bar at footer -->
+        <div class="chat-input-bar" id="chatInputBar">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Aap ko bijli ka masla hai ya plumbing?" onkeypress="handleInputKey(event)">
+            <button class="btn-icon" onclick="sendMessage()"><span style="font-size: 16px;">🚀</span></button>
+        </div>
+
+    </div>
+
+    <script>
+        // Stateful SPA Application Variables
+        let state = {
+            query: "",
+            service: "electrician",
+            urgency: "Medium",
+            complexity: "Intermediate",
+            bookingHour: 12,
+            providers: [],
+            selectedProvider: null,
+            manualDistance: null,
+            priceAnalysis: null,
+            jobId: null,
+            currentStatus: "PENDING",
+            selectedStarRating: 5
+        };
+
+        // UI screen toggles
+        function showScreen(screenId) {
+            document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+            document.getElementById(screenId).classList.add("active");
+            
+            // Hide footer chat input bar unless on Screen 1
+            if (screenId === "screenChat") {
+                document.getElementById("chatInputBar").style.display = "flex";
+            } else {
+                document.getElementById("chatInputBar").style.display = "none";
+            }
+        }
+
+        function resetFlow() {
+            state = {
+                query: "",
+                service: "electrician",
+                urgency: "Medium",
+                complexity: "Intermediate",
+                bookingHour: 12,
+                providers: [],
+                selectedProvider: null,
+                manualDistance: null,
+                priceAnalysis: null,
+                jobId: null,
+                currentStatus: "PENDING",
+                selectedStarRating: 5
+            };
+            
+            // Clear chat log
+            const history = document.getElementById("chatHistory");
+            history.innerHTML = `
+                <div class="message system">
+                    Assalam-o-Alaikum! 🤝 I am your AI Service Orchestrator. 
+                    Aap ko Islamabad mein kis service ki zaroorat hai? Bijli ka masla hai ya plumber chahiye? Please type details below.
+                </div>
+            `;
+            
+            // Reset screens
+            document.getElementById("cardRatingForm").style.display = "block";
+            document.getElementById("cardRatingResult").style.display = "none";
+            document.getElementById("disputePanel").style.display = "none";
+            document.getElementById("cardAdminTrace").style.display = "none";
+            document.getElementById("chkDisputeTrigger").checked = false;
+            document.getElementById("txtReview").value = "";
+            document.getElementById("txtDisputeComplaint").value = "";
+            
+            starClick(5);
+            showScreen("screenChat");
+        }
+
+        // --- SCREEN 1: CHAT NLU RESOLVER ---
+        function handleInputKey(e) {
+            if (e.key === "Enter") sendMessage();
+        }
+
+        function sendSuggestion(text) {
+            document.getElementById("chatInput").value = text;
+            sendMessage();
+        }
+
+        function sendMessage() {
+            const input = document.getElementById("chatInput");
+            const text = input.value.trim();
+            if (!text) return;
+
+            state.query = text;
+            input.value = "";
+
+            // Add user message bubble
+            appendMessage(text, "user");
+
+            // Show typing indicator
+            const indicator = document.getElementById("typingIndicator");
+            indicator.style.display = "flex";
+
+            // Determine urgency/complexity dynamically based on message contents
+            let textLower = text.toLowerCase();
+            if (textLower.includes("emergency") || textLower.includes("jaldi") || textLower.includes("abbi")) {
+                state.urgency = "Emergency";
+                state.bookingHour = new Date().getHours();
+            } else {
+                state.urgency = "Medium";
+                state.bookingHour = 12;
+            }
+
+            if (textLower.includes("leak") || textLower.includes("wiring") || textLower.includes("board")) {
+                state.complexity = "Intermediate";
+            } else if (textLower.includes("emergency") || textLower.includes("short")) {
+                state.complexity = "Complex";
+            } else {
+                state.complexity = "Basic";
+            }
+
+            // Post query to backend API server
+            fetch("/api/nlu", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    query: state.query,
+                    urgency: state.urgency,
+                    complexity: state.complexity,
+                    booking_hour: state.bookingHour
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                setTimeout(() => {
+                    indicator.style.display = "none";
+                    if (data.success) {
+                        state.service = data.service;
+                        state.providers = data.providers;
+
+                        appendMessage(`Intent mapped successfully! Detected specialty: <b>${data.service.toUpperCase()}</b>. Urgency parsed: <b>${data.urgency}</b>. Matching specialists...`, "system");
+                        
+                        setTimeout(() => {
+                            renderProviderGrid();
+                            showScreen("screenProviders");
+                        }, 1200);
+                    }
+                }, 800);
+            })
+            .catch(err => {
+                indicator.style.display = "none";
+                appendMessage("Backend API offline! Please verify that python server.py is running.", "system");
+            });
+        }
+
+        function appendMessage(text, sender) {
+            const history = document.getElementById("chatHistory");
+            const bubble = document.createElement("div");
+            bubble.className = `message ${sender}`;
+            bubble.innerHTML = text;
+            history.appendChild(bubble);
+            
+            // Auto scroll chat screen
+            const container = document.querySelector(".screen-flow");
+            container.scrollTop = container.scrollHeight;
+        }
+
+        // --- SCREEN 2: PROVIDERS MATCHING GRID ---
+        function renderProviderGrid() {
+            const grid = document.getElementById("providerGrid");
+            document.getElementById("txtDetection").innerText = `NLU resolved: ${state.service.toUpperCase()} (${state.complexity})`;
+            grid.innerHTML = "";
+
+            state.providers.forEach((p, idx) => {
+                const card = document.createElement("div");
+                card.className = "provider-card";
+                card.onclick = () => selectProvider(p);
+
+                const experienceClass = `badge-${p.experience_level}`;
+                
+                card.innerHTML = `
+                    <div class="provider-info-main">
+                        <div class="provider-name">${idx+1}. ${p.name}</div>
+                        <div>
+                            <span class="badge ${experienceClass}">${p.experience_level} Expert</span>
+                            <span class="rating-label">⭐ ${p.rating.toFixed(2)} (${p.user_ratings_total})</span>
+                        </div>
+                    </div>
+                    <div class="provider-stats-side">
+                        <div class="distance-label">📍 ${p.distance_km} km</div>
+                        <div style="color:var(--text-muted); font-size:11px;">Reliability: ${(p.on_time_rate * 100).toFixed(0)}%</div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function selectProvider(prov) {
+            state.selectedProvider = prov;
+            state.manualDistance = prov.distance_km;
+            document.getElementById("sliderDistance").value = prov.distance_km;
+            updateDistancePricing(prov.distance_km);
+            showScreen("screenPricing");
+        }
+
+        // --- SCREEN 3: DYNAMIC PRICING & ALTERNATIVES SUGGESTION ---
+        function updateDistancePricing(distance) {
+            state.manualDistance = parseFloat(distance);
+            document.getElementById("lblDistance").innerText = `Tweak Distance: ${state.manualDistance.toFixed(1)} km`;
+
+            fetch("/api/pricing", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    provider_id: state.selectedProvider.id,
+                    urgency: state.urgency,
+                    complexity: state.complexity,
+                    booking_hour: state.bookingHour,
+                    distance_km: state.manualDistance
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    state.priceAnalysis = data.pricing;
+                    renderInvoiceReceipt();
+                    renderAlternatives();
+                }
+            });
+        }
+
+        function renderInvoiceReceipt() {
+            const p = state.priceAnalysis;
+            const container = document.getElementById("invoiceReceipt");
+            
+            container.innerHTML = `
+                <div style="text-align: center; font-weight: bold; margin-bottom: 5px;">--- DYNAMIC PRICING INVOICE ---</div>
+                <div style="text-align: center; font-size: 10px; color:#666; margin-bottom: 10px;">Islamabad, Pakistan</div>
+                
+                <div class="receipt-row">
+                    <span>1. Base Fee (${p.line_items.base_fee.label_en})</span>
+                    <span>Rs. ${p.line_items.base_fee.amount.toFixed(2)}</span>
+                </div>
+                <div class="receipt-desc">${p.line_items.base_fee.description_en}</div>
+                <div class="receipt-desc" style="color:var(--gold); font-size:9.5px;">${p.line_items.base_fee.description_ur}</div>
+
+                <div class="receipt-row">
+                    <span>2. Safar Fee (${p.line_items.distance_cost.label_en})</span>
+                    <span>Rs. ${p.line_items.distance_cost.amount.toFixed(2)}</span>
+                </div>
+                <div class="receipt-desc">${p.line_items.distance_cost.description_en}</div>
+                <div class="receipt-desc" style="color:var(--gold); font-size:9.5px;">${p.line_items.distance_cost.description_ur}</div>
+
+                <div class="receipt-row">
+                    <span>3. Jaldi Surcharge (${p.line_items.urgency_surcharge.label_en})</span>
+                    <span>Rs. ${p.line_items.urgency_surcharge.amount.toFixed(2)}</span>
+                </div>
+                <div class="receipt-desc">${p.line_items.urgency_surcharge.description_en}</div>
+                <div class="receipt-desc" style="color:var(--gold); font-size:9.5px;">${p.line_items.urgency_surcharge.description_ur}</div>
+
+                <div class="receipt-row">
+                    <span>4. Off-Hours Fee (${p.line_items.time_surcharge.label_en})</span>
+                    <span>Rs. ${p.line_items.time_surcharge.amount.toFixed(2)}</span>
+                </div>
+                <div class="receipt-desc">${p.line_items.time_surcharge.description_en}</div>
+                <div class="receipt-desc" style="color:var(--gold); font-size:9.5px;">${p.line_items.time_surcharge.description_ur}</div>
+
+                <div class="receipt-divider"></div>
+                <div class="receipt-row" style="font-weight:bold;">
+                    <span>SUBTOTAL (Bunyadi Cost):</span>
+                    <span>Rs. ${p.subtotal.toFixed(2)}</span>
+                </div>
+                <div class="receipt-row" style="font-weight:bold;">
+                    <span>SURCHARGES (Izafi Cost):</span>
+                    <span>Rs. ${p.surcharges_total.toFixed(2)}</span>
+                </div>
+                <div class="receipt-row" style="font-weight:bold; font-size:14px; color:var(--gold);">
+                    <span>TOTAL INVOICE (Kul Cost):</span>
+                    <span>Rs. ${p.final_total.toFixed(2)}</span>
+                </div>
+            `;
+        }
+
+        function renderAlternatives() {
+            const container = document.getElementById("alternativesContainer");
+            container.innerHTML = "";
+
+            state.priceAnalysis.budget_alternatives.forEach(alt => {
+                const card = document.createElement("div");
+                card.className = "alt-card";
+                
+                card.innerHTML = `
+                    <div class="alt-header">
+                        <span class="alt-title">💡 ${alt.title_en} (${alt.title_ur})</span>
+                        <span class="alt-savings">Save Rs. ${alt.potential_savings.toFixed(0)}</span>
+                    </div>
+                    <div style="font-size:11px; color:var(--text-muted);">${alt.description_en}</div>
+                    <div style="font-size:11px; color:var(--gold);">${alt.description_ur}</div>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-top:5px;">
+                        <span style="font-size:12px; font-weight:bold;">New Price: Rs. ${alt.new_total.toFixed(2)}</span>
+                        <button class="alt-btn" onclick="applyPricingAlternative('${alt.type}', ${alt.new_total})">Apply Surcharge Save</button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function applyPricingAlternative(type, newPrice) {
+            // Recalculate invoice based on Applied suggestion parameters!
+            if (type === "time_shift") {
+                state.urgency = "Medium";
+                state.bookingHour = 12;
+                alert("⚠️ Shifting timing to daytime off-peak hours applied! Recalculating surcharges...");
+            } else if (type === "tier_shift") {
+                state.selectedProvider.base_rate = 750.0;
+                alert("⚠️ Junior provider replacement applied! Recalculating base visit tariffs...");
+            } else if (type === "proximity_shift") {
+                state.manualDistance = 2.0;
+                document.getElementById("sliderDistance").value = 2.0;
+                alert("⚠️ Nearby provider match adjustment applied (2km range)!");
+            }
+            updateDistancePricing(state.manualDistance);
+        }
+
+        // --- SCREEN 4: CALENDAR BUFFER BOOKING & TIMELINE TRACKING ---
+        function confirmBooking() {
+            fetch("/api/book", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    provider_id: state.selectedProvider.id,
+                    provider_name: state.selectedProvider.name,
+                    price: state.priceAnalysis.final_total,
+                    urgency: state.urgency,
+                    user_contact: "+92 300 1234567"
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    state.jobId = data.job_id;
+                    state.currentStatus = "ACCEPTED";
+                    
+                    // Render SMS initial load details
+                    document.getElementById("smsEnglish").innerHTML = data.booking.notifications.english.replace(/\n/g, "<br/>");
+                    document.getElementById("smsUrdu").innerHTML = data.booking.notifications.roman_urdu.replace(/\n/g, "<br/>");
+                    
+                    updateTimelineUI();
+                    showScreen("screenTracking");
+                } else {
+                    alert("Overlapping schedule slot! Travel transit buffers clashed. Please select a different timing slot.");
+                }
+            });
+        }
+
+        function updateTimelineUI() {
+            const states = ["PENDING", "ACCEPTED", "EN_ROUTE", "STARTED", "COMPLETED"];
+            const curIdx = states.indexOf(state.currentStatus);
+            
+            // Set stepper fill line percent
+            const fillPercent = (curIdx / (states.length - 1)) * 80;
+            document.getElementById("stepperFill").style.width = `${fillPercent}%`;
+
+            states.forEach((s, idx) => {
+                const node = document.getElementById(`step_${s}`);
+                node.classList.remove("active", "done");
+                
+                if (idx < curIdx) {
+                    node.classList.add("done");
+                    // Change number circle to check
+                    node.querySelector(".node-circle").innerText = "✓";
+                } else if (idx === curIdx) {
+                    node.classList.add("active");
+                    node.querySelector(".node-circle").innerText = "⚡";
+                } else {
+                    node.querySelector(".node-circle").innerText = idx + 1;
+                }
+            });
+
+            // Adjust interactive simulation buttons
+            const btnEnRoute = document.getElementById("btnEnRoute");
+            const btnStarted = document.getElementById("btnStarted");
+            const btnCompleted = document.getElementById("btnCompleted");
+
+            btnEnRoute.style.display = "none";
+            btnStarted.style.display = "none";
+            btnCompleted.style.display = "none";
+
+            if (state.currentStatus === "ACCEPTED") {
+                btnEnRoute.style.display = "block";
+            } else if (state.currentStatus === "EN_ROUTE") {
+                btnStarted.style.display = "block";
+            } else if (state.currentStatus === "STARTED") {
+                btnCompleted.style.display = "block";
+            } else if (state.currentStatus === "COMPLETED") {
+                // Advance to Feedback stars screen!
+                setTimeout(() => {
+                    showScreen("screenFeedback");
+                }, 1500);
+            }
+        }
+
+        function advanceStatus(nextStatus) {
+            fetch("/api/track", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    job_id: state.jobId,
+                    provider_id: state.selectedProvider.id,
+                    provider_name: state.selectedProvider.name,
+                    new_status: nextStatus,
+                    eta_minutes: nextStatus === "EN_ROUTE" ? 15 : null
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    state.currentStatus = nextStatus;
+                    
+                    // Render SMS timeline status details
+                    document.getElementById("smsEnglish").innerText = data.latest_event.notifications.english;
+                    document.getElementById("smsUrdu").innerText = data.latest_event.notifications.roman_urdu;
+                    
+                    updateTimelineUI();
+                } else {
+                    alert(`Transition Guard rejected action: ${data.error_message}`);
+                }
+            });
+        }
+
+        // --- SCREEN 5: REPUTATION STARS AND ESCALATION DISPUTES ---
+        function starHover(value) {
+            document.querySelectorAll(".star").forEach(s => {
+                if (parseInt(s.getAttribute("data-value")) <= value) {
+                    s.classList.add("hovered");
+                } else {
+                    s.classList.remove("hovered");
+                }
+            });
+        }
+
+        function starReset() {
+            document.querySelectorAll(".star").forEach(s => s.classList.remove("hovered"));
+        }
+
+        function starClick(value) {
+            state.selectedStarRating = value;
+            document.querySelectorAll(".star").forEach(s => {
+                if (parseInt(s.getAttribute("data-value")) <= value) {
+                    s.classList.add("selected");
+                } else {
+                    s.classList.remove("selected");
+                }
+            });
+        }
+
+        function toggleDisputeIntake(checked) {
+            const panel = document.getElementById("disputePanel");
+            panel.style.display = checked ? "block" : "none";
+            
+            if (checked) {
+                // Center panel scroll helper
+                setTimeout(() => {
+                    const container = document.querySelector(".screen-flow");
+                    container.scrollTop = container.scrollHeight;
+                }, 200);
+            }
+        }
+
+        function submitFeedbackReputation() {
+            const review = document.getElementById("txtReview").value.trim();
+            
+            fetch("/api/rate", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    job_id: state.jobId,
+                    provider_id: state.selectedProvider.id,
+                    rating: state.selectedStarRating,
+                    review_text: review ? review : "Good work!"
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById("cardRatingForm").style.display = "none";
+                    
+                    const report = document.getElementById("reputationAuditReport");
+                    const sentClass = `sent-${data.sentiment_label.toLowerCase()}`;
+                    
+                    report.innerHTML = `
+                        <div style="margin-bottom:10px;">
+                            <strong>Bilingual Sentiment:</strong> 
+                            <span class="${sentClass}" style="padding:2px 8px; border-radius:10px; font-size:11px; font-weight:bold; color:#fff;">${data.sentiment_label} (Score: ${data.sentiment_score})</span>
+                        </div>
+                        <div style="font-size:12px; margin-bottom:8px; border-top:1px dashed rgba(255,255,255,0.1); padding-top:8px;">
+                            <strong>📈 Rating Shift:</strong><br/>
+                            ${data.rating_delta.old_rating.toFixed(2)} ➡️ <span style="color:#00ff00; font-weight:bold;">${data.rating_delta.new_rating.toFixed(2)}</span> (Total reviews: ${data.rating_delta.total_reviews})
+                        </div>
+                        <div style="font-size:12px; margin-top:8px;">
+                            <strong>🛡️ Reliability Score Shift:</strong><br/>
+                            ${(data.reliability_delta.old_reliability * 100).toFixed(1)}% ➡️ <span style="color:#00ff00; font-weight:bold;">${(data.reliability_delta.new_reliability * 100).toFixed(1)}%</span> (Adj: ${(data.reliability_delta.adjustment * 100).toFixed(1)}%)
+                        </div>
+                    `;
+                    document.getElementById("cardRatingResult").style.display = "block";
+                    
+                    // If rating <= 2, automatically unlock dispute lodging sheet!
+                    if (state.selectedStarRating <= 2) {
+                        document.getElementById("chkDisputeTrigger").checked = true;
+                        toggleDisputeIntake(true);
+                    }
+                }
+            });
+        }
+
+        function lodgeOperationalDispute() {
+            const cat = document.getElementById("disputeCategory").value;
+            const complaint = document.getElementById("txtDisputeComplaint").value.trim();
+
+            fetch("/api/dispute", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    job_id: state.jobId,
+                    provider_id: state.selectedProvider.id,
+                    provider_name: state.selectedProvider.name,
+                    category: cat,
+                    customer_complaint: complaint ? complaint : "Disputing service.",
+                    billing_info: state.priceAnalysis,
+                    provider_stats: state.selectedProvider
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    const ticket = data.ticket;
+                    
+                    // Hide intake inputs
+                    document.getElementById("disputePanel").style.display = "none";
+                    
+                    // Set admin card text
+                    document.getElementById("adminRiskBadge").innerText = `${ticket.risk_level} Risk`;
+                    document.getElementById("adminRiskBadge").className = `badge-risk risk-${ticket.risk_level}`;
+                    
+                    document.getElementById("adminTraceLog").innerText = ticket.reasoning_trace;
+                    document.getElementById("adminRecommendationText").innerText = ticket.admin_recommendation;
+                    
+                    // Reveal platform admin console card!
+                    document.getElementById("cardAdminTrace").style.display = "block";
+                    
+                    // Adjust SMS bubbles to show Dispute alerts
+                    document.getElementById("smsEnglish").innerText = ticket.notifications.english;
+                    document.getElementById("smsUrdu").innerText = ticket.notifications.roman_urdu;
+                    
+                    // Scroll to see admin log
+                    setTimeout(() => {
+                        const container = document.querySelector(".screen-flow");
+                        container.scrollTop = container.scrollHeight;
+                    }, 200);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+[
+    {
+        "timestamp": "2026-05-17T09:45:44.094496",
+        "job_id": "JOB-4544",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "rating": 5.0,
+        "review_text": "Zafar Ali ne bohot acha aur professional kaam kiya, behtareen service fast aur teek thi!",
+        "sentiment": {
+            "score": 1.0,
+            "label": "Positive",
+            "matched_positive_count": 5,
+            "matched_negative_count": 0
+        },
+        "rating_delta": {
+            "old_rating": 4.9,
+            "new_rating": 4.9,
+            "total_reviews": 43
+        },
+        "reliability_delta": {
+            "old_reliability": 0.98,
+            "new_reliability": 1.0,
+            "adjustment": 0.02
+        }
+    },
+    {
+        "timestamp": "2026-05-17T09:47:59.874400",
+        "job_id": "JOB-4759",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "rating": 5.0,
+        "review_text": "Zafar Ali ne bohot acha aur professional kaam kiya, behtareen service fast aur teek thi!",
+        "sentiment": {
+            "score": 1.0,
+            "label": "Positive",
+            "matched_positive_count": 5,
+            "matched_negative_count": 0
+        },
+        "rating_delta": {
+            "old_rating": 4.9,
+            "new_rating": 4.9,
+            "total_reviews": 44
+        },
+        "reliability_delta": {
+            "old_reliability": 1.0,
+            "new_reliability": 1.0,
+            "adjustment": 0.02
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:02:52.451381",
+        "job_id": "JOB-0252",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "rating": 5.0,
+        "review_text": "Zafar Ali ne bohot acha aur professional kaam kiya, behtareen service fast aur teek thi!",
+        "sentiment": {
+            "score": 1.0,
+            "label": "Positive",
+            "matched_positive_count": 5,
+            "matched_negative_count": 0
+        },
+        "rating_delta": {
+            "old_rating": 4.9,
+            "new_rating": 4.9,
+            "total_reviews": 45
+        },
+        "reliability_delta": {
+            "old_reliability": 1.0,
+            "new_reliability": 1.0,
+            "adjustment": 0.02
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:20:44.303948",
+        "job_id": "JOB-2044",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "rating": 5.0,
+        "review_text": "Zafar Ali ne bohot acha aur professional kaam kiya, behtareen service fast aur teek thi!",
+        "sentiment": {
+            "score": 1.0,
+            "label": "Positive",
+            "matched_positive_count": 5,
+            "matched_negative_count": 0
+        },
+        "rating_delta": {
+            "old_rating": 4.9,
+            "new_rating": 4.9,
+            "total_reviews": 46
+        },
+        "reliability_delta": {
+            "old_reliability": 1.0,
+            "new_reliability": 1.0,
+            "adjustment": 0.02
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:22:48.648608",
+        "job_id": "JOB-2248",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "rating": 5.0,
+        "review_text": "Zafar Ali ne bohot acha aur professional kaam kiya, behtareen service fast aur teek thi!",
+        "sentiment": {
+            "score": 1.0,
+            "label": "Positive",
+            "matched_positive_count": 5,
+            "matched_negative_count": 0
+        },
+        "rating_delta": {
+            "old_rating": 4.9,
+            "new_rating": 4.9,
+            "total_reviews": 47
+        },
+        "reliability_delta": {
+            "old_reliability": 1.0,
+            "new_reliability": 1.0,
+            "adjustment": 0.02
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:35:30.910409",
+        "job_id": "JOB-3530",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "rating": 5.0,
+        "review_text": "Zafar Ali ne bohot acha aur professional kaam kiya, behtareen service fast aur teek thi!",
+        "sentiment": {
+            "score": 1.0,
+            "label": "Positive",
+            "matched_positive_count": 5,
+            "matched_negative_count": 0
+        },
+        "rating_delta": {
+            "old_rating": 4.9,
+            "new_rating": 4.9,
+            "total_reviews": 48
+        },
+        "reliability_delta": {
+            "old_reliability": 1.0,
+            "new_reliability": 1.0,
+            "adjustment": 0.02
+        }
+    }
+]

@@ -1,0 +1,87 @@
+[
+    {
+        "ticket_id": "TKT-4759",
+        "timestamp": "2026-05-17T09:47:59.877482",
+        "job_id": "JOB-4759",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "customer_contact": "+923001234567",
+        "category": "Price Disagreement",
+        "complaint_details": "I am disputing the total amount! PKR 688 urgency and PKR 361 off-hour night fee are far too expensive!",
+        "risk_level": "Low",
+        "reasoning_trace": "Dispute Ticket TKT-4759 opened at 2026-05-17T09:47:59.877482 for Job JOB-4759.\nCustomer reported complaint under category: 'Price Disagreement'.\nCustomer Details: +923001234567 | Affected Provider: Zafar Ali (Electrician) (prov_01)\n\n--- [Audit 1: Financial Pricing Invoice Validation] ---\n  - Logged Base Rate: Rs. 1500.00 | Logged Distance tariff: Rs. 220.00\n  - Math Check (Base + Distance): Expected Subtotal Rs. 1720.00 | Actual subtotal: Rs. 1720.00 (PASS)\n  - Surcharges Incurred: Rs. 1049.20 | Final Invoiced Total: Rs. 2769.20\n  - Surcharges Trace:\n    * Urgency premium (Rs. 688.00) was added due to prioritize scheduling.\n    * Night premium (Rs. 361.20) was added due to booking outside normal 9 AM - 6 PM daytime range.\n  - Client was charged surcharges due to off-hours/high priority. Billing calculation is mathematically correct.",
+        "admin_recommendation": "Billing calculations are audited as 100% CORRECT. Surcharges were justified by urgency and booking time. Action: Deny refund request, but offer a Rs. 150 Customer Goodwill Promo Coupon to resolve friction.",
+        "notifications": {
+            "english": "Dear Customer, your dispute ticket #TKT-4759 has been successfully logged. Our administrative team is investigating the issue (Job #JOB-4759) and will contact you within 24 hours. Thank you for your patience! Support is our priority.",
+            "roman_urdu": "Moaziz Saarif, aap ki shikayat ticket #TKT-4759 darj ho chuki hai. Humari admin team aap ke kaam (Job #JOB-4759) ke is maslay ki jaiza le rahi hai aur 24 ghantay ke andar aapse rabta kare gi. Aap ke sabar ka shukriya!"
+        }
+    },
+    {
+        "ticket_id": "TKT-0252",
+        "timestamp": "2026-05-17T10:02:52.453379",
+        "job_id": "JOB-0252",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "customer_contact": "+923001234567",
+        "category": "Price Disagreement",
+        "complaint_details": "I am disputing the total amount! PKR 688 urgency and PKR 361 off-hour night fee are far too expensive!",
+        "risk_level": "Low",
+        "reasoning_trace": "Dispute Ticket TKT-0252 opened at 2026-05-17T10:02:52.453379 for Job JOB-0252.\nCustomer reported complaint under category: 'Price Disagreement'.\nCustomer Details: +923001234567 | Affected Provider: Zafar Ali (Electrician) (prov_01)\n\n--- [Audit 1: Financial Pricing Invoice Validation] ---\n  - Logged Base Rate: Rs. 1500.00 | Logged Distance tariff: Rs. 220.00\n  - Math Check (Base + Distance): Expected Subtotal Rs. 1720.00 | Actual subtotal: Rs. 1720.00 (PASS)\n  - Surcharges Incurred: Rs. 1049.20 | Final Invoiced Total: Rs. 2769.20\n  - Surcharges Trace:\n    * Urgency premium (Rs. 688.00) was added due to prioritize scheduling.\n    * Night premium (Rs. 361.20) was added due to booking outside normal 9 AM - 6 PM daytime range.\n  - Client was charged surcharges due to off-hours/high priority. Billing calculation is mathematically correct.",
+        "admin_recommendation": "Billing calculations are audited as 100% CORRECT. Surcharges were justified by urgency and booking time. Action: Deny refund request, but offer a Rs. 150 Customer Goodwill Promo Coupon to resolve friction.",
+        "notifications": {
+            "english": "Dear Customer, your dispute ticket #TKT-0252 has been successfully logged. Our administrative team is investigating the issue (Job #JOB-0252) and will contact you within 24 hours. Thank you for your patience! Support is our priority.",
+            "roman_urdu": "Moaziz Saarif, aap ki shikayat ticket #TKT-0252 darj ho chuki hai. Humari admin team aap ke kaam (Job #JOB-0252) ke is maslay ki jaiza le rahi hai aur 24 ghantay ke andar aapse rabta kare gi. Aap ke sabar ka shukriya!"
+        }
+    },
+    {
+        "ticket_id": "TKT-2044",
+        "timestamp": "2026-05-17T10:20:44.306945",
+        "job_id": "JOB-2044",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "customer_contact": "+923001234567",
+        "category": "Price Disagreement",
+        "complaint_details": "I am disputing the total amount! PKR 688 urgency and PKR 361 off-hour night fee are far too expensive!",
+        "risk_level": "Low",
+        "reasoning_trace": "Dispute Ticket TKT-2044 opened at 2026-05-17T10:20:44.306945 for Job JOB-2044.\nCustomer reported complaint under category: 'Price Disagreement'.\nCustomer Details: +923001234567 | Affected Provider: Zafar Ali (Electrician) (prov_01)\n\n--- [Audit 1: Financial Pricing Invoice Validation] ---\n  - Logged Base Rate: Rs. 1500.00 | Logged Distance tariff: Rs. 220.00\n  - Math Check (Base + Distance): Expected Subtotal Rs. 1720.00 | Actual subtotal: Rs. 1720.00 (PASS)\n  - Surcharges Incurred: Rs. 1049.20 | Final Invoiced Total: Rs. 2769.20\n  - Surcharges Trace:\n    * Urgency premium (Rs. 688.00) was added due to prioritize scheduling.\n    * Night premium (Rs. 361.20) was added due to booking outside normal 9 AM - 6 PM daytime range.\n  - Client was charged surcharges due to off-hours/high priority. Billing calculation is mathematically correct.",
+        "admin_recommendation": "Billing calculations are audited as 100% CORRECT. Surcharges were justified by urgency and booking time. Action: Deny refund request, but offer a Rs. 150 Customer Goodwill Promo Coupon to resolve friction.",
+        "notifications": {
+            "english": "Dear Customer, your dispute ticket #TKT-2044 has been successfully logged. Our administrative team is investigating the issue (Job #JOB-2044) and will contact you within 24 hours. Thank you for your patience! Support is our priority.",
+            "roman_urdu": "Moaziz Saarif, aap ki shikayat ticket #TKT-2044 darj ho chuki hai. Humari admin team aap ke kaam (Job #JOB-2044) ke is maslay ki jaiza le rahi hai aur 24 ghantay ke andar aapse rabta kare gi. Aap ke sabar ka shukriya!"
+        }
+    },
+    {
+        "ticket_id": "TKT-2248",
+        "timestamp": "2026-05-17T10:22:48.652602",
+        "job_id": "JOB-2248",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "customer_contact": "+923001234567",
+        "category": "Price Disagreement",
+        "complaint_details": "I am disputing the total amount! PKR 688 urgency and PKR 361 off-hour night fee are far too expensive!",
+        "risk_level": "Low",
+        "reasoning_trace": "Dispute Ticket TKT-2248 opened at 2026-05-17T10:22:48.652602 for Job JOB-2248.\nCustomer reported complaint under category: 'Price Disagreement'.\nCustomer Details: +923001234567 | Affected Provider: Zafar Ali (Electrician) (prov_01)\n\n--- [Audit 1: Financial Pricing Invoice Validation] ---\n  - Logged Base Rate: Rs. 1500.00 | Logged Distance tariff: Rs. 220.00\n  - Math Check (Base + Distance): Expected Subtotal Rs. 1720.00 | Actual subtotal: Rs. 1720.00 (PASS)\n  - Surcharges Incurred: Rs. 1049.20 | Final Invoiced Total: Rs. 2769.20\n  - Surcharges Trace:\n    * Urgency premium (Rs. 688.00) was added due to prioritize scheduling.\n    * Night premium (Rs. 361.20) was added due to booking outside normal 9 AM - 6 PM daytime range.\n  - Client was charged surcharges due to off-hours/high priority. Billing calculation is mathematically correct.",
+        "admin_recommendation": "Billing calculations are audited as 100% CORRECT. Surcharges were justified by urgency and booking time. Action: Deny refund request, but offer a Rs. 150 Customer Goodwill Promo Coupon to resolve friction.",
+        "notifications": {
+            "english": "Dear Customer, your dispute ticket #TKT-2248 has been successfully logged. Our administrative team is investigating the issue (Job #JOB-2248) and will contact you within 24 hours. Thank you for your patience! Support is our priority.",
+            "roman_urdu": "Moaziz Saarif, aap ki shikayat ticket #TKT-2248 darj ho chuki hai. Humari admin team aap ke kaam (Job #JOB-2248) ke is maslay ki jaiza le rahi hai aur 24 ghantay ke andar aapse rabta kare gi. Aap ke sabar ka shukriya!"
+        }
+    },
+    {
+        "ticket_id": "TKT-3530",
+        "timestamp": "2026-05-17T10:35:30.914705",
+        "job_id": "JOB-3530",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "customer_contact": "+923001234567",
+        "category": "Price Disagreement",
+        "complaint_details": "I am disputing the total amount! PKR 688 urgency and PKR 361 off-hour night fee are far too expensive!",
+        "risk_level": "Low",
+        "reasoning_trace": "Dispute Ticket TKT-3530 opened at 2026-05-17T10:35:30.914705 for Job JOB-3530.\nCustomer reported complaint under category: 'Price Disagreement'.\nCustomer Details: +923001234567 | Affected Provider: Zafar Ali (Electrician) (prov_01)\n\n--- [Audit 1: Financial Pricing Invoice Validation] ---\n  - Logged Base Rate: Rs. 1500.00 | Logged Distance tariff: Rs. 220.00\n  - Math Check (Base + Distance): Expected Subtotal Rs. 1720.00 | Actual subtotal: Rs. 1720.00 (PASS)\n  - Surcharges Incurred: Rs. 1049.20 | Final Invoiced Total: Rs. 2769.20\n  - Surcharges Trace:\n    * Urgency premium (Rs. 688.00) was added due to prioritize scheduling.\n    * Night premium (Rs. 361.20) was added due to booking outside normal 9 AM - 6 PM daytime range.\n  - Client was charged surcharges due to off-hours/high priority. Billing calculation is mathematically correct.",
+        "admin_recommendation": "Billing calculations are audited as 100% CORRECT. Surcharges were justified by urgency and booking time. Action: Deny refund request, but offer a Rs. 150 Customer Goodwill Promo Coupon to resolve friction.",
+        "notifications": {
+            "english": "Dear Customer, your dispute ticket #TKT-3530 has been successfully logged. Our administrative team is investigating the issue (Job #JOB-3530) and will contact you within 24 hours. Thank you for your patience! Support is our priority.",
+            "roman_urdu": "Moaziz Saarif, aap ki shikayat ticket #TKT-3530 darj ho chuki hai. Humari admin team aap ke kaam (Job #JOB-3530) ke is maslay ki jaiza le rahi hai aur 24 ghantay ke andar aapse rabta kare gi. Aap ke sabar ka shukriya!"
+        }
+    }
+]

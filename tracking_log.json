@@ -1,0 +1,632 @@
+[
+    {
+        "timestamp": "2026-05-17T09:42:16.817511",
+        "job_id": "JOB-992",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "PENDING",
+        "location": "F-8 Islamabad",
+        "notes_en": "Job request #JOB-992 submitted. Searching for matching providers.",
+        "notes_ur": "Kaam ki request #JOB-992 darj ho chuki hai. Behtareen maahir ki talaash jaari hai.",
+        "notifications": {
+            "english": "Job #JOB-992 received. We are matching you with the best provider.",
+            "roman_urdu": "Aap ki request #JOB-992 mil chuki hai. Hum jald hi maahir ka intekhab karein ge."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T09:42:16.832133",
+        "job_id": "JOB-992",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "ACCEPTED",
+        "location": "F-8 Islamabad",
+        "notes_en": "Provider Zafar Ali (Electrician) has accepted request #JOB-992.",
+        "notes_ur": "Maahir Zafar Ali (Electrician) ne request #JOB-992 qabool kar li hai.",
+        "notifications": {
+            "english": "Good news! Provider Zafar Ali (Electrician) has accepted your request #JOB-992.",
+            "roman_urdu": "Khushkhabri! Provider Zafar Ali (Electrician) ne aap ka kaam #JOB-992 qabool kar liya hai."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T09:42:16.847630",
+        "job_id": "JOB-992",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "EN_ROUTE",
+        "location": "F-8 Islamabad",
+        "notes_en": "Provider Zafar Ali (Electrician) is en route to customer site in 15 mins.",
+        "notes_ur": "Maahir Zafar Ali (Electrician) customer ke patay par aane ke liye raste mein hain (takreeban 15 minute mein).",
+        "notifications": {
+            "english": "🔔 TRAVEL UPDATE: Provider Zafar Ali (Electrician) is en route to F-8 Islamabad and will arrive in 15 mins! Safe tracking active.",
+            "roman_urdu": "🔔 SAFAR KI UPDATE: Provider Zafar Ali (Electrician) aap ke patay (F-8 Islamabad) ke liye nikal chuke hain aur (takreeban 15 minute mein) pohnch jayen ge!"
+        }
+    },
+    {
+        "timestamp": "2026-05-17T09:42:16.861783",
+        "job_id": "JOB-992",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "STARTED",
+        "location": "F-8 Islamabad",
+        "notes_en": "Provider Zafar Ali (Electrician) has arrived and started job #JOB-992.",
+        "notes_ur": "Maahir Zafar Ali (Electrician) ne pohnch kar kaam #JOB-992 shuru kar diya hai.",
+        "notifications": {
+            "english": "🛠️ WORK STARTED: Provider Zafar Ali (Electrician) has started work on Job #JOB-992. Safety verified.",
+            "roman_urdu": "🛠️ KAAM SHURU: Provider Zafar Ali (Electrician) ne aap ka kaam (Job #JOB-992) shuru kar diya hai. Hifazati checks active hain."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T09:42:16.876347",
+        "job_id": "JOB-992",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "COMPLETED",
+        "location": "F-8 Islamabad",
+        "notes_en": "Job #JOB-992 completed successfully by Zafar Ali (Electrician).",
+        "notes_ur": "Kaam #JOB-992 kamyabi se mukammal ho chuka hai.",
+        "notifications": {
+            "english": "✅ JOB COMPLETED! Job #JOB-992 is finished. Please complete rating. Invoice receipt sent.",
+            "roman_urdu": "✅ KAAM MUKAMMAL! Aap ka kaam #JOB-992 khatam ho gaya hai. Feedback lazmi dein aur invoice jaiza lein."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T09:45:44.030394",
+        "job_id": "JOB-4544",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "PENDING",
+        "location": "F-8 Islamabad",
+        "notes_en": "Job request #JOB-4544 submitted. Searching for matching providers.",
+        "notes_ur": "Kaam ki request #JOB-4544 darj ho chuki hai. Behtareen maahir ki talaash jaari hai.",
+        "notifications": {
+            "english": "Job #JOB-4544 received. We are matching you with the best provider.",
+            "roman_urdu": "Aap ki request #JOB-4544 mil chuki hai. Hum jald hi maahir ka intekhab karein ge."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T09:45:44.044594",
+        "job_id": "JOB-4544",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "ACCEPTED",
+        "location": "F-8 Islamabad",
+        "notes_en": "Provider Zafar Ali (Electrician) has accepted request #JOB-4544.",
+        "notes_ur": "Maahir Zafar Ali (Electrician) ne request #JOB-4544 qabool kar li hai.",
+        "notifications": {
+            "english": "Good news! Provider Zafar Ali (Electrician) has accepted your request #JOB-4544.",
+            "roman_urdu": "Khushkhabri! Provider Zafar Ali (Electrician) ne aap ka kaam #JOB-4544 qabool kar liya hai."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T09:45:44.057582",
+        "job_id": "JOB-4544",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "EN_ROUTE",
+        "location": "F-8 Islamabad",
+        "notes_en": "Provider Zafar Ali (Electrician) is en route to customer site in 15 mins.",
+        "notes_ur": "Maahir Zafar Ali (Electrician) customer ke patay par aane ke liye raste mein hain (takreeban 15 minute mein).",
+        "notifications": {
+            "english": "🔔 TRAVEL UPDATE: Provider Zafar Ali (Electrician) is en route to F-8 Islamabad and will arrive in 15 mins! Safe tracking active.",
+            "roman_urdu": "🔔 SAFAR KI UPDATE: Provider Zafar Ali (Electrician) aap ke patay (F-8 Islamabad) ke liye nikal chuke hain aur (takreeban 15 minute mein) pohnch jayen ge!"
+        }
+    },
+    {
+        "timestamp": "2026-05-17T09:45:44.071080",
+        "job_id": "JOB-4544",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "STARTED",
+        "location": "F-8 Islamabad",
+        "notes_en": "Provider Zafar Ali (Electrician) has arrived and started job #JOB-4544.",
+        "notes_ur": "Maahir Zafar Ali (Electrician) ne pohnch kar kaam #JOB-4544 shuru kar diya hai.",
+        "notifications": {
+            "english": "🛠️ WORK STARTED: Provider Zafar Ali (Electrician) has started work on Job #JOB-4544. Safety verified.",
+            "roman_urdu": "🛠️ KAAM SHURU: Provider Zafar Ali (Electrician) ne aap ka kaam (Job #JOB-4544) shuru kar diya hai. Hifazati checks active hain."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T09:45:44.087989",
+        "job_id": "JOB-4544",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "COMPLETED",
+        "location": "F-8 Islamabad",
+        "notes_en": "Job #JOB-4544 completed successfully by Zafar Ali (Electrician).",
+        "notes_ur": "Kaam #JOB-4544 kamyabi se mukammal ho chuka hai.",
+        "notifications": {
+            "english": "✅ JOB COMPLETED! Job #JOB-4544 is finished. Please complete rating. Invoice receipt sent.",
+            "roman_urdu": "✅ KAAM MUKAMMAL! Aap ka kaam #JOB-4544 khatam ho gaya hai. Feedback lazmi dein aur invoice jaiza lein."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T09:47:59.808118",
+        "job_id": "JOB-4759",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "PENDING",
+        "location": "F-8 Islamabad",
+        "notes_en": "Job request #JOB-4759 submitted. Searching for matching providers.",
+        "notes_ur": "Kaam ki request #JOB-4759 darj ho chuki hai. Behtareen maahir ki talaash jaari hai.",
+        "notifications": {
+            "english": "Job #JOB-4759 received. We are matching you with the best provider.",
+            "roman_urdu": "Aap ki request #JOB-4759 mil chuki hai. Hum jald hi maahir ka intekhab karein ge."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T09:47:59.824218",
+        "job_id": "JOB-4759",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "ACCEPTED",
+        "location": "F-8 Islamabad",
+        "notes_en": "Provider Zafar Ali (Electrician) has accepted request #JOB-4759.",
+        "notes_ur": "Maahir Zafar Ali (Electrician) ne request #JOB-4759 qabool kar li hai.",
+        "notifications": {
+            "english": "Good news! Provider Zafar Ali (Electrician) has accepted your request #JOB-4759.",
+            "roman_urdu": "Khushkhabri! Provider Zafar Ali (Electrician) ne aap ka kaam #JOB-4759 qabool kar liya hai."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T09:47:59.838207",
+        "job_id": "JOB-4759",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "EN_ROUTE",
+        "location": "F-8 Islamabad",
+        "notes_en": "Provider Zafar Ali (Electrician) is en route to customer site in 15 mins.",
+        "notes_ur": "Maahir Zafar Ali (Electrician) customer ke patay par aane ke liye raste mein hain (takreeban 15 minute mein).",
+        "notifications": {
+            "english": "🔔 TRAVEL UPDATE: Provider Zafar Ali (Electrician) is en route to F-8 Islamabad and will arrive in 15 mins! Safe tracking active.",
+            "roman_urdu": "🔔 SAFAR KI UPDATE: Provider Zafar Ali (Electrician) aap ke patay (F-8 Islamabad) ke liye nikal chuke hain aur (takreeban 15 minute mein) pohnch jayen ge!"
+        }
+    },
+    {
+        "timestamp": "2026-05-17T09:47:59.856073",
+        "job_id": "JOB-4759",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "STARTED",
+        "location": "F-8 Islamabad",
+        "notes_en": "Provider Zafar Ali (Electrician) has arrived and started job #JOB-4759.",
+        "notes_ur": "Maahir Zafar Ali (Electrician) ne pohnch kar kaam #JOB-4759 shuru kar diya hai.",
+        "notifications": {
+            "english": "🛠️ WORK STARTED: Provider Zafar Ali (Electrician) has started work on Job #JOB-4759. Safety verified.",
+            "roman_urdu": "🛠️ KAAM SHURU: Provider Zafar Ali (Electrician) ne aap ka kaam (Job #JOB-4759) shuru kar diya hai. Hifazati checks active hain."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T09:47:59.871284",
+        "job_id": "JOB-4759",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "COMPLETED",
+        "location": "F-8 Islamabad",
+        "notes_en": "Job #JOB-4759 completed successfully by Zafar Ali (Electrician).",
+        "notes_ur": "Kaam #JOB-4759 kamyabi se mukammal ho chuka hai.",
+        "notifications": {
+            "english": "✅ JOB COMPLETED! Job #JOB-4759 is finished. Please complete rating. Invoice receipt sent.",
+            "roman_urdu": "✅ KAAM MUKAMMAL! Aap ka kaam #JOB-4759 khatam ho gaya hai. Feedback lazmi dein aur invoice jaiza lein."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:02:52.381031",
+        "job_id": "JOB-0252",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "PENDING",
+        "location": "F-8 Islamabad",
+        "notes_en": "Job request #JOB-0252 submitted. Searching for matching providers.",
+        "notes_ur": "Kaam ki request #JOB-0252 darj ho chuki hai. Behtareen maahir ki talaash jaari hai.",
+        "notifications": {
+            "english": "Job #JOB-0252 received. We are matching you with the best provider.",
+            "roman_urdu": "Aap ki request #JOB-0252 mil chuki hai. Hum jald hi maahir ka intekhab karein ge."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:02:52.397529",
+        "job_id": "JOB-0252",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "ACCEPTED",
+        "location": "F-8 Islamabad",
+        "notes_en": "Provider Zafar Ali (Electrician) has accepted request #JOB-0252.",
+        "notes_ur": "Maahir Zafar Ali (Electrician) ne request #JOB-0252 qabool kar li hai.",
+        "notifications": {
+            "english": "Good news! Provider Zafar Ali (Electrician) has accepted your request #JOB-0252.",
+            "roman_urdu": "Khushkhabri! Provider Zafar Ali (Electrician) ne aap ka kaam #JOB-0252 qabool kar liya hai."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:02:52.412203",
+        "job_id": "JOB-0252",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "EN_ROUTE",
+        "location": "F-8 Islamabad",
+        "notes_en": "Provider Zafar Ali (Electrician) is en route to customer site in 15 mins.",
+        "notes_ur": "Maahir Zafar Ali (Electrician) customer ke patay par aane ke liye raste mein hain (takreeban 15 minute mein).",
+        "notifications": {
+            "english": "🔔 TRAVEL UPDATE: Provider Zafar Ali (Electrician) is en route to F-8 Islamabad and will arrive in 15 mins! Safe tracking active.",
+            "roman_urdu": "🔔 SAFAR KI UPDATE: Provider Zafar Ali (Electrician) aap ke patay (F-8 Islamabad) ke liye nikal chuke hain aur (takreeban 15 minute mein) pohnch jayen ge!"
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:02:52.428401",
+        "job_id": "JOB-0252",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "STARTED",
+        "location": "F-8 Islamabad",
+        "notes_en": "Provider Zafar Ali (Electrician) has arrived and started job #JOB-0252.",
+        "notes_ur": "Maahir Zafar Ali (Electrician) ne pohnch kar kaam #JOB-0252 shuru kar diya hai.",
+        "notifications": {
+            "english": "🛠️ WORK STARTED: Provider Zafar Ali (Electrician) has started work on Job #JOB-0252. Safety verified.",
+            "roman_urdu": "🛠️ KAAM SHURU: Provider Zafar Ali (Electrician) ne aap ka kaam (Job #JOB-0252) shuru kar diya hai. Hifazati checks active hain."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:02:52.445385",
+        "job_id": "JOB-0252",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "COMPLETED",
+        "location": "F-8 Islamabad",
+        "notes_en": "Job #JOB-0252 completed successfully by Zafar Ali (Electrician).",
+        "notes_ur": "Kaam #JOB-0252 kamyabi se mukammal ho chuka hai.",
+        "notifications": {
+            "english": "✅ JOB COMPLETED! Job #JOB-0252 is finished. Please complete rating. Invoice receipt sent.",
+            "roman_urdu": "✅ KAAM MUKAMMAL! Aap ka kaam #JOB-0252 khatam ho gaya hai. Feedback lazmi dein aur invoice jaiza lein."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:20:44.208184",
+        "job_id": "JOB-2044",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "PENDING",
+        "location": "F-8 Islamabad",
+        "notes_en": "Job request #JOB-2044 submitted. Searching for matching providers.",
+        "notes_ur": "Kaam ki request #JOB-2044 darj ho chuki hai. Behtareen maahir ki talaash jaari hai.",
+        "notifications": {
+            "english": "Job #JOB-2044 received. We are matching you with the best provider.",
+            "roman_urdu": "Aap ki request #JOB-2044 mil chuki hai. Hum jald hi maahir ka intekhab karein ge."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:20:44.227220",
+        "job_id": "JOB-2044",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "ACCEPTED",
+        "location": "F-8 Islamabad",
+        "notes_en": "Provider Zafar Ali (Electrician) has accepted request #JOB-2044.",
+        "notes_ur": "Maahir Zafar Ali (Electrician) ne request #JOB-2044 qabool kar li hai.",
+        "notifications": {
+            "english": "Good news! Provider Zafar Ali (Electrician) has accepted your request #JOB-2044.",
+            "roman_urdu": "Khushkhabri! Provider Zafar Ali (Electrician) ne aap ka kaam #JOB-2044 qabool kar liya hai."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:20:44.251300",
+        "job_id": "JOB-2044",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "EN_ROUTE",
+        "location": "F-8 Islamabad",
+        "notes_en": "Provider Zafar Ali (Electrician) is en route to customer site in 15 mins.",
+        "notes_ur": "Maahir Zafar Ali (Electrician) customer ke patay par aane ke liye raste mein hain (takreeban 15 minute mein).",
+        "notifications": {
+            "english": "🔔 TRAVEL UPDATE: Provider Zafar Ali (Electrician) is en route to F-8 Islamabad and will arrive in 15 mins! Safe tracking active.",
+            "roman_urdu": "🔔 SAFAR KI UPDATE: Provider Zafar Ali (Electrician) aap ke patay (F-8 Islamabad) ke liye nikal chuke hain aur (takreeban 15 minute mein) pohnch jayen ge!"
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:20:44.270792",
+        "job_id": "JOB-2044",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "STARTED",
+        "location": "F-8 Islamabad",
+        "notes_en": "Provider Zafar Ali (Electrician) has arrived and started job #JOB-2044.",
+        "notes_ur": "Maahir Zafar Ali (Electrician) ne pohnch kar kaam #JOB-2044 shuru kar diya hai.",
+        "notifications": {
+            "english": "🛠️ WORK STARTED: Provider Zafar Ali (Electrician) has started work on Job #JOB-2044. Safety verified.",
+            "roman_urdu": "🛠️ KAAM SHURU: Provider Zafar Ali (Electrician) ne aap ka kaam (Job #JOB-2044) shuru kar diya hai. Hifazati checks active hain."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:20:44.292959",
+        "job_id": "JOB-2044",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "COMPLETED",
+        "location": "F-8 Islamabad",
+        "notes_en": "Job #JOB-2044 completed successfully by Zafar Ali (Electrician).",
+        "notes_ur": "Kaam #JOB-2044 kamyabi se mukammal ho chuka hai.",
+        "notifications": {
+            "english": "✅ JOB COMPLETED! Job #JOB-2044 is finished. Please complete rating. Invoice receipt sent.",
+            "roman_urdu": "✅ KAAM MUKAMMAL! Aap ka kaam #JOB-2044 khatam ho gaya hai. Feedback lazmi dein aur invoice jaiza lein."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:22:48.511148",
+        "job_id": "JOB-2248",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "PENDING",
+        "location": "F-8 Islamabad",
+        "notes_en": "Job request #JOB-2248 submitted. Searching for matching providers.",
+        "notes_ur": "Kaam ki request #JOB-2248 darj ho chuki hai. Behtareen maahir ki talaash jaari hai.",
+        "notifications": {
+            "english": "Job #JOB-2248 received. We are matching you with the best provider.",
+            "roman_urdu": "Aap ki request #JOB-2248 mil chuki hai. Hum jald hi maahir ka intekhab karein ge."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:22:48.544006",
+        "job_id": "JOB-2248",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "ACCEPTED",
+        "location": "F-8 Islamabad",
+        "notes_en": "Provider Zafar Ali (Electrician) has accepted request #JOB-2248.",
+        "notes_ur": "Maahir Zafar Ali (Electrician) ne request #JOB-2248 qabool kar li hai.",
+        "notifications": {
+            "english": "Good news! Provider Zafar Ali (Electrician) has accepted your request #JOB-2248.",
+            "roman_urdu": "Khushkhabri! Provider Zafar Ali (Electrician) ne aap ka kaam #JOB-2248 qabool kar liya hai."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:22:48.592016",
+        "job_id": "JOB-2248",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "EN_ROUTE",
+        "location": "F-8 Islamabad",
+        "notes_en": "Provider Zafar Ali (Electrician) is en route to customer site in 15 mins.",
+        "notes_ur": "Maahir Zafar Ali (Electrician) customer ke patay par aane ke liye raste mein hain (takreeban 15 minute mein).",
+        "notifications": {
+            "english": "🔔 TRAVEL UPDATE: Provider Zafar Ali (Electrician) is en route to F-8 Islamabad and will arrive in 15 mins! Safe tracking active.",
+            "roman_urdu": "🔔 SAFAR KI UPDATE: Provider Zafar Ali (Electrician) aap ke patay (F-8 Islamabad) ke liye nikal chuke hain aur (takreeban 15 minute mein) pohnch jayen ge!"
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:22:48.614038",
+        "job_id": "JOB-2248",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "STARTED",
+        "location": "F-8 Islamabad",
+        "notes_en": "Provider Zafar Ali (Electrician) has arrived and started job #JOB-2248.",
+        "notes_ur": "Maahir Zafar Ali (Electrician) ne pohnch kar kaam #JOB-2248 shuru kar diya hai.",
+        "notifications": {
+            "english": "🛠️ WORK STARTED: Provider Zafar Ali (Electrician) has started work on Job #JOB-2248. Safety verified.",
+            "roman_urdu": "🛠️ KAAM SHURU: Provider Zafar Ali (Electrician) ne aap ka kaam (Job #JOB-2248) shuru kar diya hai. Hifazati checks active hain."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:22:48.633618",
+        "job_id": "JOB-2248",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "COMPLETED",
+        "location": "F-8 Islamabad",
+        "notes_en": "Job #JOB-2248 completed successfully by Zafar Ali (Electrician).",
+        "notes_ur": "Kaam #JOB-2248 kamyabi se mukammal ho chuka hai.",
+        "notifications": {
+            "english": "✅ JOB COMPLETED! Job #JOB-2248 is finished. Please complete rating. Invoice receipt sent.",
+            "roman_urdu": "✅ KAAM MUKAMMAL! Aap ka kaam #JOB-2248 khatam ho gaya hai. Feedback lazmi dein aur invoice jaiza lein."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:26:01.645547",
+        "job_id": "JOB-2601",
+        "provider_id": "prov_03",
+        "provider_name": "Hamid Masood (AC & Ref Repair)",
+        "status": "PENDING",
+        "location": "Sector F-8 DHA Phase 5, Islamabad",
+        "notes_en": "Job request #JOB-2601 submitted. Searching for matching providers.",
+        "notes_ur": "Kaam ki request #JOB-2601 darj ho chuki hai. Behtareen maahir ki talaash jaari hai.",
+        "notifications": {
+            "english": "Job #JOB-2601 received. We are matching you with the best provider.",
+            "roman_urdu": "Aap ki request #JOB-2601 mil chuki hai. Hum jald hi maahir ka intekhab karein ge."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:26:01.736976",
+        "job_id": "JOB-2601",
+        "provider_id": "prov_03",
+        "provider_name": "Hamid Masood (AC & Ref Repair)",
+        "status": "ACCEPTED",
+        "location": "Sector F-8 DHA Phase 5, Islamabad",
+        "notes_en": "Provider Hamid Masood (AC & Ref Repair) has accepted request #JOB-2601.",
+        "notes_ur": "Maahir Hamid Masood (AC & Ref Repair) ne request #JOB-2601 qabool kar li hai.",
+        "notifications": {
+            "english": "Good news! Provider Hamid Masood (AC & Ref Repair) has accepted your request #JOB-2601.",
+            "roman_urdu": "Khushkhabri! Provider Hamid Masood (AC & Ref Repair) ne aap ka kaam #JOB-2601 qabool kar liya hai."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:27:13.088559",
+        "job_id": "JOB-2601",
+        "provider_id": "prov_03",
+        "provider_name": "Hamid Masood (AC & Ref Repair)",
+        "status": "CANCELLED",
+        "location": "Sector F-8 DHA Phase 5, Islamabad",
+        "notes_en": "Job #JOB-2601 has been cancelled.",
+        "notes_ur": "Kaam #JOB-2601 mansookh kar diya gaya hai.",
+        "notifications": {
+            "english": "⚠️ CANCELLED: Job #JOB-2601 has been cancelled. Reach support for assistance.",
+            "roman_urdu": "⚠️ MANSOOKH: Aap ka kaam #JOB-2601 mansookh ho gaya hai. Madad ke liye humse rabta karein."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:35:30.809431",
+        "job_id": "JOB-3530",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "PENDING",
+        "location": "F-8 Islamabad",
+        "notes_en": "Job request #JOB-3530 submitted. Searching for matching providers.",
+        "notes_ur": "Kaam ki request #JOB-3530 darj ho chuki hai. Behtareen maahir ki talaash jaari hai.",
+        "notifications": {
+            "english": "Job #JOB-3530 received. We are matching you with the best provider.",
+            "roman_urdu": "Aap ki request #JOB-3530 mil chuki hai. Hum jald hi maahir ka intekhab karein ge."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:35:30.829906",
+        "job_id": "JOB-3530",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "ACCEPTED",
+        "location": "F-8 Islamabad",
+        "notes_en": "Provider Zafar Ali (Electrician) has accepted request #JOB-3530.",
+        "notes_ur": "Maahir Zafar Ali (Electrician) ne request #JOB-3530 qabool kar li hai.",
+        "notifications": {
+            "english": "Good news! Provider Zafar Ali (Electrician) has accepted your request #JOB-3530.",
+            "roman_urdu": "Khushkhabri! Provider Zafar Ali (Electrician) ne aap ka kaam #JOB-3530 qabool kar liya hai."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:35:30.853023",
+        "job_id": "JOB-3530",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "EN_ROUTE",
+        "location": "F-8 Islamabad",
+        "notes_en": "Provider Zafar Ali (Electrician) is en route to customer site in 15 mins.",
+        "notes_ur": "Maahir Zafar Ali (Electrician) customer ke patay par aane ke liye raste mein hain (takreeban 15 minute mein).",
+        "notifications": {
+            "english": "🔔 TRAVEL UPDATE: Provider Zafar Ali (Electrician) is en route to F-8 Islamabad and will arrive in 15 mins! Safe tracking active.",
+            "roman_urdu": "🔔 SAFAR KI UPDATE: Provider Zafar Ali (Electrician) aap ke patay (F-8 Islamabad) ke liye nikal chuke hain aur (takreeban 15 minute mein) pohnch jayen ge!"
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:35:30.877439",
+        "job_id": "JOB-3530",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "STARTED",
+        "location": "F-8 Islamabad",
+        "notes_en": "Provider Zafar Ali (Electrician) has arrived and started job #JOB-3530.",
+        "notes_ur": "Maahir Zafar Ali (Electrician) ne pohnch kar kaam #JOB-3530 shuru kar diya hai.",
+        "notifications": {
+            "english": "🛠️ WORK STARTED: Provider Zafar Ali (Electrician) has started work on Job #JOB-3530. Safety verified.",
+            "roman_urdu": "🛠️ KAAM SHURU: Provider Zafar Ali (Electrician) ne aap ka kaam (Job #JOB-3530) shuru kar diya hai. Hifazati checks active hain."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:35:30.901726",
+        "job_id": "JOB-3530",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "COMPLETED",
+        "location": "F-8 Islamabad",
+        "notes_en": "Job #JOB-3530 completed successfully by Zafar Ali (Electrician).",
+        "notes_ur": "Kaam #JOB-3530 kamyabi se mukammal ho chuka hai.",
+        "notifications": {
+            "english": "✅ JOB COMPLETED! Job #JOB-3530 is finished. Please complete rating. Invoice receipt sent.",
+            "roman_urdu": "✅ KAAM MUKAMMAL! Aap ka kaam #JOB-3530 khatam ho gaya hai. Feedback lazmi dein aur invoice jaiza lein."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:45:26.659150",
+        "job_id": "JOB-4526",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "PENDING",
+        "location": "Sector F-8, Islamabad",
+        "notes_en": "Job request #JOB-4526 submitted. Searching for matching providers.",
+        "notes_ur": "Kaam ki request #JOB-4526 darj ho chuki hai. Behtareen maahir ki talaash jaari hai.",
+        "notifications": {
+            "english": "Job #JOB-4526 received. We are matching you with the best provider.",
+            "roman_urdu": "Aap ki request #JOB-4526 mil chuki hai. Hum jald hi maahir ka intekhab karein ge."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:45:26.723089",
+        "job_id": "JOB-4526",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "ACCEPTED",
+        "location": "Sector F-8, Islamabad",
+        "notes_en": "Provider Zafar Ali (Electrician) has accepted request #JOB-4526.",
+        "notes_ur": "Maahir Zafar Ali (Electrician) ne request #JOB-4526 qabool kar li hai.",
+        "notifications": {
+            "english": "Good news! Provider Zafar Ali (Electrician) has accepted your request #JOB-4526.",
+            "roman_urdu": "Khushkhabri! Provider Zafar Ali (Electrician) ne aap ka kaam #JOB-4526 qabool kar liya hai."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T10:47:09.384534",
+        "job_id": "JOB-4526",
+        "provider_id": "prov_01",
+        "provider_name": "Zafar Ali (Electrician)",
+        "status": "CANCELLED",
+        "location": "Sector F-8, Islamabad",
+        "notes_en": "Job #JOB-4526 has been cancelled.",
+        "notes_ur": "Kaam #JOB-4526 mansookh kar diya gaya hai.",
+        "notifications": {
+            "english": "⚠️ CANCELLED: Job #JOB-4526 has been cancelled. Reach support for assistance.",
+            "roman_urdu": "⚠️ MANSOOKH: Aap ka kaam #JOB-4526 mansookh ho gaya hai. Madad ke liye humse rabta karein."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T11:35:09.844292",
+        "job_id": "JOB-3509",
+        "provider_id": "prov_03",
+        "provider_name": "Hamid Masood (AC & Ref Repair)",
+        "status": "PENDING",
+        "location": "Sector G-9, Islamabad",
+        "notes_en": "Job request #JOB-3509 submitted. Searching for matching providers.",
+        "notes_ur": "Kaam ki request #JOB-3509 darj ho chuki hai. Behtareen maahir ki talaash jaari hai.",
+        "notifications": {
+            "english": "Job #JOB-3509 received. We are matching you with the best provider.",
+            "roman_urdu": "Aap ki request #JOB-3509 mil chuki hai. Hum jald hi maahir ka intekhab karein ge."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T11:35:10.020887",
+        "job_id": "JOB-3509",
+        "provider_id": "prov_03",
+        "provider_name": "Hamid Masood (AC & Ref Repair)",
+        "status": "ACCEPTED",
+        "location": "Sector G-9, Islamabad",
+        "notes_en": "Provider Hamid Masood (AC & Ref Repair) has accepted request #JOB-3509.",
+        "notes_ur": "Maahir Hamid Masood (AC & Ref Repair) ne request #JOB-3509 qabool kar li hai.",
+        "notifications": {
+            "english": "Good news! Provider Hamid Masood (AC & Ref Repair) has accepted your request #JOB-3509.",
+            "roman_urdu": "Khushkhabri! Provider Hamid Masood (AC & Ref Repair) ne aap ka kaam #JOB-3509 qabool kar liya hai."
+        }
+    },
+    {
+        "timestamp": "2026-05-17T11:35:48.611410",
+        "job_id": "JOB-3509",
+        "provider_id": "prov_03",
+        "provider_name": "Hamid Masood (AC & Ref Repair)",
+        "status": "EN_ROUTE",
+        "location": "Sector G-9, Islamabad",
+        "notes_en": "Provider Hamid Masood (AC & Ref Repair) is en route to customer site in 15 mins.",
+        "notes_ur": "Maahir Hamid Masood (AC & Ref Repair) customer ke patay par aane ke liye raste mein hain (takreeban 15 minute mein).",
+        "notifications": {
+            "english": "🔔 TRAVEL UPDATE: Provider Hamid Masood (AC & Ref Repair) is en route to Sector G-9, Islamabad and will arrive in 15 mins! Safe tracking active.",
+            "roman_urdu": "🔔 SAFAR KI UPDATE: Provider Hamid Masood (AC & Ref Repair) aap ke patay (Sector G-9, Islamabad) ke liye nikal chuke hain aur (takreeban 15 minute mein) pohnch jayen ge!"
+        }
+    },
+    {
+        "timestamp": "2026-05-17T11:36:08.225118",
+        "job_id": "JOB-3509",
+        "provider_id": "prov_03",
+        "provider_name": "Hamid Masood (AC & Ref Repair)",
+        "status": "CANCELLED",
+        "location": "Sector G-9, Islamabad",
+        "notes_en": "Job #JOB-3509 has been cancelled.",
+        "notes_ur": "Kaam #JOB-3509 mansookh kar diya gaya hai.",
+        "notifications": {
+            "english": "⚠️ CANCELLED: Job #JOB-3509 has been cancelled. Reach support for assistance.",
+            "roman_urdu": "⚠️ MANSOOKH: Aap ka kaam #JOB-3509 mansookh ho gaya hai. Madad ke liye humse rabta karein."
+        }
+    }
+]
